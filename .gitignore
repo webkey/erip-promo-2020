@@ -1,0 +1,10 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+*.idea
+*.iml
+*.ipr
+node_modules
+**/libs
+**/npm-debug.log
+/dist
+/promo

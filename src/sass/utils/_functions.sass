@@ -1,0 +1,68 @@
+/// Немного осветлить цвет
+/// @access public
+/// @param {Color} $color - цвет для осветления
+/// @param {Number} $percentage - процент от `$color` в возвращаемом цвете
+/// @return {Color}
+@function tint($color, $percentage)
+	@return mix($color, white, $percentage)
+
+/// Немного затемнить цвет
+/// @access public
+/// @param {Color} $color - цвет для затемнения
+/// @param {Number} $percentage - процент от `$color` в возвращаемом цвете
+/// @return {Color}
+@function shade($color, $percentage)
+	@return mix($color, black, $percentage)
+
+
+// =============================================================================
+// opposite-direction
+// =============================================================================
+/// Возвращает противоположное направление для каждого направления из списка
+/// Returns the opposite direction of each direction in a list
+/// @author Hugo Giraudel
+/// @param {List} $directions - List of initial directions
+/// @return {List} - List of opposite directions
+///
+/// @example Sass - Использование
+/// .selector
+///   background-position: opposite-direction(top right)
+///
+/// @example css - Вывод CSS
+/// .selector {
+///   background-position: bottom left;
+/// }
+@function opposite-direction($directions)
+	$opposite-directions: ()
+	$direction-map: ("top": "bottom", "right": "left", "bottom": "top", "left": "right", "center": "center", "ltr": "rtl", "rtl": "ltr")
+
+	@each $direction in $directions
+		$direction: to-lower-case($direction)
+
+		@if map-has-key($direction-map, $direction)
+			$opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)))
+		@else
+			@warn "No opposite direction can be found for `#{$direction}`. Direction omitted."
+
+	@return $opposite-directions
+
+// =============================================================================
+// strip-unit
+// =============================================================================
+/// Фунция обрезает единицы измерения, возвращая толко число
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+///
+/// @example use
+///   $length: 42px;
+///   $value: strip-unit($length);
+///
+/// @example return
+///   42
+
+@function strip-unit($number)
+	@if type-of($number) == "number" and not unitless($number)
+		@return $number / ($number * 0 + 1)
+
+	@return $number

@@ -1,0 +1,33 @@
+// =============================================================================
+// pow
+// =============================================================================
+/// Возведение в степень
+///
+/// @param {Number, Length} $number - Число
+/// @param {Number, Length} $exponent - Степень
+/// @return {Number} - Значение `$number` возведенно в степень `$exponent`
+
+@function pow($number, $exponent)
+	$value: 1
+
+	@if $exponent > 0
+		@for $i from 1 through $exponent
+			$value: $value * $number
+
+	@return $value
+
+// =============================================================================
+// round-float
+// =============================================================================
+/// Округление до n знаков после запятой
+///
+/// @param {Number, Length} $number - Число
+/// @param {Number, Length} $n - Количество знаков после запяной
+/// @return {Number} - Значение округленное до `n` знаков после запятой
+
+@function round-float($number, $n)
+	$float: pow(10,$n)
+
+	$value: round($number*$float)/$float
+
+	@return $value

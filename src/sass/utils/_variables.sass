@@ -1,0 +1,205 @@
+@import ../utils/functions
+@import ../utils/placeholders
+// Medium query
+$breakpoints: ('desk-qhd': 2560px, 'desk-hd': 1920px, 'desk-lg': 1600px, 'desk-ml': 1440px, 'desk-md': 1366px, 'desk-sm': 1200px, 'tab-lg': 992px, 'tab-sm': 768px, 'mob-lg': 640px, 'mob-md': 480px, 'mob-sm': 360px)
+
+// Fonts style
+// ==========================================================================
+$font-norm: "Nimbus Sans Novus", Helvetica, Arial, sans-serif
+$font-bold: "Nimbus Sans Novus Bold", Helvetica, Arial, sans-serif
+$font-medium: "Nimbus Sans Novus Medium", Helvetica, Arial, sans-serif
+
+=font-normal()
+  font-family: $font-norm
+
+=font-bold()
+  font-family: $font-bold
+  font-weight: normal
+
+=font-medium()
+  font-family: $font-medium
+  font-weight: normal
+
+=font-italic()
+  font-style: italic
+
+=font-bold-italic()
+  font-family: $font-bold
+  font-style: italic
+
+// Base
+// ==========================================================================
+
+$font-size: 2.2rem !default
+$line-height: round-float(2.5rem/$font-size, 1) !default
+// ----------------------------------------------------
+$font-size--small: 1.4rem !default
+$line-height--small: round-float(2.4rem/$font-size--small, 1) !default
+
+// Heading h1
+$font-size-h1: 4.8rem !default
+$line-height-h1: round-float(6.0rem/$font-size-h1, 1) !default
+// ----------------------------------------------------
+$font-size-h1--md: 3.6rem !default
+$line-height-h1--md: round-float(4.8rem/$font-size-h1--md, 1) !default
+// ----------------------------------------------------
+$font-size-h1--sm: 3.0rem !default
+$line-height-h1--sm: round-float(4.2rem/$font-size-h1--sm, 1) !default
+// ----------------------------------------------------
+=font-h1()
+  font-size: $font-size-h1
+  line-height: $line-height-h1
+
+  +media('<tab-lg')
+    font-size: $font-size-h1--md
+    line-height: $line-height-h1--md
+
+  +media('<mob-lg')
+    font-size: $font-size-h1--sm
+    line-height: $line-height-h1--sm
+
+// Heading h2
+$font-size-h2: round-float($font-size-h1*3.6rem/4.8rem, 1) !default
+$line-height-h2: round-float(4.8rem/3.6rem, 2) !default
+// ----------------------------------------------------
+$font-size-h2--md: round-float($font-size-h1--md*0.84, 1) !default
+$line-height-h2--md: round-float(($line-height-h1--md*1.02), 1) !default
+// ----------------------------------------------------
+$font-size-h2--sm: round-float($font-size-h1--sm*0.87, 1) !default
+$line-height-h2--sm: round-float(($line-height-h1--sm*1.01), 1) !default
+// ----------------------------------------------------
+=font-h2()
+  font-size: $font-size-h2
+  line-height: $line-height-h2
+
+  +media('<tab-lg')
+    font-size: $font-size-h2--md
+    line-height: $line-height-h2--md
+
+  +media('<mob-lg')
+    font-size: $font-size-h2--sm
+    line-height: $line-height-h2--sm
+
+// Heading h3
+$font-size-h3: round-float($font-size-h1*2.4rem/4.8rem, 1) !default
+$line-height-h3: round-float(3.6rem/2.4rem, 2) !default
+// ----------------------------------------------------
+$font-size-h3--sm: round-float($font-size-h1--sm*0.73, 1) !default
+$line-height-h3--sm: round-float(($line-height-h1--sm*1.05), 1) !default
+// ----------------------------------------------------
+=font-h3()
+  font-size: $font-size-h3
+  line-height: $line-height-h3
+
+  +media('<mob-lg')
+    font-size: $font-size-h3--sm
+    line-height: $line-height-h3--sm
+
+// Heading h4
+$font-size-h4: round-float($font-size-h1*1.8rem/4.8rem, 1) !default
+$line-height-h4: round-float(3.0rem/1.8rem, 2) !default
+
+// Heading h5
+$font-size-h5: $font-size !default
+$line-height-h5: $line-height !default
+
+// Heading h6
+$font-size-h6: round-float($font-size*0.75, 1) !default
+$line-height-h6: round-float($line-height*1.25, 2) !default
+
+// Spaces
+$bottom-space: round-float($font-size*$line-height, 1) !default
+$bottom-space--large: round-float($font-size*$line-height*3, 1) !default
+$bottom-space--medium: round-float($font-size*$line-height*2.0, 1) !default
+$bottom-space--middle: round-float($font-size*$line-height*1.5, 1) !default
+$bottom-space--small: round-float($font-size*$line-height*0.75, 1) !default
+
+
+// Colors
+// ==========================================================================
+
+// Color of brands
+$base-color: #ffa43f !default
+$base-color-alt: lightskyblue !default
+// ----------------------------------------------------
+$bg-color: #f48130 !default
+$bg-color-light: #f5924d !default
+$bg-color-alt: #d8d8d8 !default
+$shadow-color: #c94f08 !default
+// ----------------------------------------------------
+$text-color: #fff !default
+$text-color-alt: #000 !default
+$text-color-light: gray !default
+$title-color: #fff !default
+// ----------------------------------------------------
+$link-color: #fff !default
+// ----------------------------------------------------
+$border-color: lightgray !default
+// ----------------------------------------------------
+$mark-color: tomato !default
+// ----------------------------------------------------
+$text-shadow: 0 0 5px rgba($bg-color, 0.5) !default
+$text-shadow-hover: 0 0 5px rgba($bg-color, 0.8) !default
+
+
+// Layout
+// ==========================================================================
+
+$layout-page-min-width: 32rem !default
+$layout-page-max-width: 256rem !default
+$layout-page-space: 2rem !default
+
+$layout-content-max-width: 76.8rem !default
+// минимальные отступы у текствого блока
+$text-layout-space: 50px 60px !default
+// v h
+$text-layout-space--md: 25px 30px !default
+// v h
+$text-layout-space--sm: 13px 15px !default
+// v h
+$text-layout-space--mob: 8px 10px !default
+// v h
+// максимальная ширина текстового блока
+$text-layout-width: 800px !default
+// максимальная ширина текстового блока выходящего за пределы текста
+$flood-layout-width: 1000px !default
+// отступы внутри блочных элементов
+$grid-space: 28px 30px !default
+// v h
+$grid-space--lg: 18px 20px !default
+// v h
+$grid-space--sm: 8px 10px !default
+// v h
+// отступы в дефолтных списках
+$list-space: 30px
+
+
+// Header
+// ==========================================================================
+$header-height: 6.3rem !default
+
+
+// Buttons
+// ==========================================================================
+
+$btn-height: 50px !default
+$btn-bg-color: $bg-color !default
+$btn-bg-hover-color: darken($btn-bg-color, 10%) !default
+$btn-text-color: white !default
+$btn-disabled-color: #ccc !default
+$btn-font-size: 16px !default
+//$btn-font-size--mob: 16px !default
+$btn-line-height: 22px !default
+//$btn-line-height--mob: 20px !default
+$btn-border-width: 2px
+
+
+// Animation
+// ==========================================================================
+$animation-speed: 0.2s !default
+$animation-speed-mouseleave: 0.35s !default
+
+
+// Animation
+// ==========================================================================
+$shadow: drop-shadow(1px 1px 2px rgba(white, 0.6)) !default

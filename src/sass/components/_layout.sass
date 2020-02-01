@@ -1,0 +1,86 @@
+@import src/sass/utils/variables
+@import src/sass/utils/mixins
+@import node_modules/include-media/dist/include-media
+
+html
+  font-size: 62.5%
+
+body
+  position: relative
+  +font-normal
+  font-size: $font-size
+  line-height: $line-height
+  color: $text-color
+  min-width: $layout-page-min-width
+  background: $bg-color url(../../img/empty.png) no-repeat center fixed
+  background-size: round(2560 / 2) * 1px
+  display: flex
+  flex-direction: column
+
+//1.5 dpr
+//@media(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)
+  background-image: url(../../img/bg-desktop@2x.png)
+  background-size: round(2560 / 2) * 1px
+
+.layout-page
+  width: 100%
+  max-width: $layout-page-max-width
+  padding-left: $layout-page-space
+  padding-right: $layout-page-space
+  +push-auto
+
+.layout-content
+  max-width: $layout-content-max-width
+  +push-auto
+
+.main
+  position: relative
+  display: flex
+  flex-grow: 1
+  flex-shrink: 0
+  width: 100%
+
+  &_center
+    align-items: center
+
+.content
+  width: 100%
+
+.header
+  position: relative
+  height: $header-height
+
+.header_fixed
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  z-index: 5
+
+.header__holder
+  height: 100%
+  background-color: $bg-color
+  box-shadow: 0 2px 12px rgba($shadow-color, 0.5)
+  padding-left: $layout-page-space
+  padding-right: $layout-page-space
+  margin: 0 auto
+  max-width: $layout-page-max-width
+
+.footer
+  position: relative
+
+.footer_float, .home-page .footer
+  position: fixed
+  left: 0
+  bottom: 0
+  width: 100%
+  z-index: 5
+
+.footer__holder
+  height: 100%
+  background-color: $bg-color
+  box-shadow: 0 -2px 12px rgba($shadow-color, 0.5)
+  padding-left: $layout-page-space
+  padding-right: $layout-page-space
+  margin: 0 auto
+  max-width: $layout-page-max-width
