@@ -52,7 +52,11 @@ gulp.task('htmlCompilationProduction', function () {
           markdown: markdown.parse
         }
       }))
-      .pipe(replace('<base href="http://localhost:3000/">', '<base href="http://ерип.бел/">'))
+      .pipe(
+          replace(
+              '<base href="http://localhost:3000/">',
+              '<base href="http://html.test.astronim.com/erip-bel/">')
+      )
       .pipe(htmlbeautify({
         "indent_with_tabs": true,
         "max_preserve_newlines": 0
