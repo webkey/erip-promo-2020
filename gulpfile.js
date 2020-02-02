@@ -28,7 +28,7 @@ var gulp = require('gulp'),
     beautify = require('gulp-beautify');
 
 var path = {
-  'dist': 'promo'
+  'dist': 'dist'
 };
 
 gulp.task('htmlCompilation', function () {
