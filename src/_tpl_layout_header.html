@@ -1,12 +1,14 @@
 <!--header-->
 <header class="header header_fixed">
-	<div class="header__holder">
-		<div class="nav">
-			@@if(context.btnHome){<a href="index.html" class="nav__arr nav__arr_top" title="На главную">↑</a>}
-			@@if(context.btnBack){<a href="javascript:void(0)" onclick="window.history.back()" class="nav__arr nav__arr_left" title="Назад">←</a>}
-			<span class="nav__page nav__page_large">@@title</span>
-			@@if(context.btnAbout){<a href="about.html" class="nav__info" title="O проекте">?</a>}
-		</div>
-	</div>
+  <div class="header__holder">
+    <div class="layout-content">
+      <div class="nav">
+        @@if(context.btnHome){<a href="index.html" class="nav__arr" title="На главную">↑</a>}
+        @@if(context.btnBack){<a href="javascript:void(0)" onclick="window.history.back()" class="nav__back" title="Назад">←</a>}
+        <h1 class="nav__title@@if(context.titleLarge){ nav__title_large}">@@title</h1>
+        @@if(context.btnAbout){<a href="about.html" class="nav__info" title="O проекте">?</a>}
+      </div>
+    </div>
+  </div>
 </header>
 <!--header end-->

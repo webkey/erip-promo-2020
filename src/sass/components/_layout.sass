@@ -5,6 +5,21 @@
 html
   font-size: 62.5%
 
+  +media('>0px')
+    font-size: 56%
+
+  +media('>359px')
+    font-size: 62.5%
+
+  +media('>479px')
+    font-size: 83%
+
+  +media('>767px')
+    font-size: 100%
+
+  +media('>981px')
+    font-size: 62.5%
+
 body
   position: relative
   +font-normal
@@ -33,54 +48,3 @@ body
   max-width: $layout-content-max-width
   +push-auto
 
-.main
-  position: relative
-  display: flex
-  flex-grow: 1
-  flex-shrink: 0
-  width: 100%
-
-  &_center
-    align-items: center
-
-.content
-  width: 100%
-
-.header
-  position: relative
-  height: $header-height
-
-.header_fixed
-  position: fixed
-  left: 0
-  top: 0
-  width: 100%
-  z-index: 5
-
-.header__holder
-  height: 100%
-  background-color: $bg-color
-  box-shadow: 0 2px 12px rgba($shadow-color, 0.5)
-  padding-left: $layout-page-space
-  padding-right: $layout-page-space
-  margin: 0 auto
-  max-width: $layout-page-max-width
-
-.footer
-  position: relative
-
-.footer_float, .home-page .footer
-  position: fixed
-  left: 0
-  bottom: 0
-  width: 100%
-  z-index: 5
-
-.footer__holder
-  height: 100%
-  background-color: $bg-color
-  box-shadow: 0 -2px 12px rgba($shadow-color, 0.5)
-  padding-left: $layout-page-space
-  padding-right: $layout-page-space
-  margin: 0 auto
-  max-width: $layout-page-max-width

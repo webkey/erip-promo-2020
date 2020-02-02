@@ -2,75 +2,12 @@
 @import src/sass/utils/mixins
 @import node_modules/include-media/dist/include-media
 
-h1, h2, h3, h4, h5, h6
-  padding: 0
-  +font-normal
-  color: $title-color
-  margin: 0 0 $bottom-space
-
-  +media('<mob-lg')
-    margin-bottom: round-float($bottom-space*0.85, 1)
-
-  &:last-child
-    margin-bottom: 0
-
-  a
-    text-decoration: none
-    color: inherit
-
-    .no-touchevents &:hover
-      color: $base-color
-      text-decoration: underline
-
-h1
-  +font-h1
-
-h2
-  +font-h2
-
-h3
-  +font-h3
-
-h4
-  +font($font-size-h4, $line-height-h4)
-
-h5
-  +font($font-size-h5, $line-height-h5)
-
-h6
-  +font($font-size-h6, $line-height-h6)
-  text-transform: uppercase
-
-p
-  padding: 0
-  margin: 0 0 $bottom-space
-
-hr
-  line-height: 1px
-  height: 0
-  border: none
-  background: none
-  border-bottom: 1px solid $border-color
-  margin-bottom: $bottom-space
-
 a
   color: $link-color
   text-decoration: underline
-  cursor: default
 
-  &:link
-    cursor: pointer
-
-  .no-touchevents &:hover
+  &:hover
     text-decoration: none
-
-  &[href^="tel"], .no-touchevents &[href^="tel"]:hover
-    text-decoration: none !important
-    color: inherit
-    cursor: default
-
-  &[href^="javascript:"]
-    cursor: default
 
 img
   border: none
@@ -116,51 +53,6 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .hide-text
   +hide-text
 
-.imgc
-  text-align: center
-  display: block
-  margin: 0 auto $bottom-space
-  width: $flood-layout-width
-  max-width: 100%
-  clear: both
-
-.imgl
-  text-align: left
-  float: left
-  margin: 0 $bottom-space $bottom-space 0
-
-.imgr
-  text-align: right
-  float: right
-  margin: 0 0 $bottom-space $bottom-space
-
-.imgl, .imgr
-  max-width: 40%
-
-  +media('<tab-sm')
-    float: none
-    display: block
-    margin-left: auto
-    margin-right: auto
-    max-width: 100%
-
-.imgc, .imgl, .imgr
-  figcaption
-    display: block
-    padding: $bottom-space 0 0
-    margin: 0
-    +font($font-size--small, $line-height--small)
-
-.edit-content
-  @each $tags in h2, h3, h4, h5
-    p + #{$tags},
-    ul + #{$tags},
-    ol + #{$tags},
-    hr + #{$tags},
-    table + #{$tags},
-    .table-auto + #{$tags}
-      margin-top: $bottom-space * 2
-
 table
   border-collapse: collapse
   border-spacing: 0
@@ -185,3 +77,48 @@ table
     margin-bottom: 0
     width: auto
     min-width: 100%
+
+.edit-content
+  h1, h2, h3
+    padding: 0
+    @include font-bold
+    color: inherit
+    margin: 0 0 $bottom-space
+    letter-spacing: -0.01em
+
+    &:last-child
+      margin-bottom: 0
+
+    a
+      text-decoration: none
+      color: inherit
+
+      .no-touchevents &:hover
+        color: $base-color
+        text-decoration: underline
+
+  h1, .h1
+    +font-h1
+
+  h2, .h2
+    +font-h2
+    text-align: center
+    text-transform: uppercase
+
+  h3, .h3
+    +font-h3
+
+  h1, .h1,
+  h2, .h2,
+  h3, .h3
+    margin-top: round-float(1.5 * $bottom-space, 1)
+
+    &:first-child
+      margin-top: 0
+
+  p
+    padding: 0
+    margin: 0 0 $bottom-space
+
+    &:last-child
+      margin-bottom: 0

@@ -1,9 +1,7 @@
-<script>
-  if (!("ontouchstart" in document.documentElement)) {
-    document.documentElement.className += " no-touchevents";
-  } else {
-    document.documentElement.className += " touchevents";
-  }
-</script>
+@@if(context.jsOn){
+<script src="js/jquery.min.js"></script>
+<script src="js/libs.min.js"></script>
+<script src="js/common.js"></script>
+}
 </body>
 </html>

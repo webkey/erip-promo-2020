@@ -2,21 +2,166 @@
 @import ../utils/mixins
 @import node_modules/include-media/dist/include-media
 
+/* main
+.main
+  position: relative
+  //flex-grow: 1
+  flex-shrink: 0
+  width: 100%
+
+  &_center
+    display: flex
+    align-items: center
+    flex-grow: 1
+
+  &_header-space
+    padding-top: $header-height
+
+/* main end
+
+/* header
+.header
+  position: relative
+  height: $header-height
+
+  &_fixed
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    min-width: $layout-page-min-width
+    z-index: 5
+
+  &__holder
+    height: 100%
+    background-color: $bg-color
+    box-shadow: 0 2px 12px rgba($shadow-color, 0.5)
+    padding-left: $layout-page-space
+    padding-right: $layout-page-space
+    max-width: $layout-page-max-width
+    margin: 0 auto
+
+/* header end
+
+/* footer
+.footer
+  position: relative
+  margin-top: auto
+  flex-shrink: 0
+
+  &_float
+    position: fixed
+    left: 0
+    bottom: 0
+    width: 100%
+    z-index: 5
+
+  &__holder
+    height: 100%
+    background-color: $bg-color
+    padding: 2rem #{$layout-page-space} 4rem
+    max-width: $layout-page-max-width
+    margin: 0 auto
+
+  &__title
+    margin-bottom: 2.5rem
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    &-logo
+      $width: 7rem
+      flex-shrink: 0
+      flex-basis: $width
+      width: $width
+      max-width: $width
+
+    &-divider
+      display: block
+      flex-shrink: 0
+      width: 0.2rem
+      height: 13.1rem
+      background-color: white
+
+    &-slogan
+      flex-shrink: 0
+      @include font-bold
+      font-size: 2rem
+      line-height: 2.4rem
+      letter-spacing: -0.01em
+      text-transform: uppercase
+      white-space: nowrap
+
+  &__content
+    font-size: 1.4rem
+    line-height: 1.8rem
+    text-transform: uppercase
+    letter-spacing: 0.01em
+    margin-bottom: 2.5rem
+
+    p
+      margin-bottom: 1.8rem
+
+      &:last-child
+        margin-bottom: 0
+
+  &__bottom
+    text-align: center
+
+/* footer end
+
+/* logo
+.logo
+  $logo: &
+
+  display: inline-block
+  vertical-align: top
+  text-decoration: none
+  color: inherit
+  width: 100%
+  margin: 0 auto
+  font-size: 0
+  line-height: 0
+  background: url(../../img/logo.svg) no-repeat center
+  background-size: contain
+  transition: opacity $animation-speed, filter $animation-speed
+  user-select: none
+  -webkit-tap-highlight-color: transparent
+
+  @at-root
+    a#{$logo}:hover
+      filter: $shadow
+
+    a#{$logo}:active
+      opacity: 0.8
+
+  &::before
+    content: ""
+    display: block
+    @include ratio(175, 269)
+
+/*logo end
+
 /* nav
 .nav
+  position: relative
   display: flex
   align-items: center
-  justify-content: space-between
-  height: 6.3rem
+  justify-content: center
+  height: $header-height
 
   a
-    color: currentColor
+    color: inherit
     text-decoration: none
 
   &__arr
-    display: inline-block
+    display: block
+    position: absolute
+    left: 0
+    top: 50%
     width: 3.4rem
     height: 3.8rem
+    margin-top: -1.9rem
     font-size: 2.7rem
     line-height: 3.7rem
     text-align: center
@@ -24,410 +169,379 @@
     color: white
     user-select: none
     -webkit-tap-highlight-color: transparent
-    cursor: pointer
-    // transition
-    $prop: opacity, filter
-    will-change: $prop
-    transition:
-      property: $prop
-      duration: $animation-speed
-      timing-function: ease-in-out
+    transition: opacity $animation-speed, filter $animation-speed
 
-    .no-touchevents &:hover
-      filter: drop-shadow(1px 1px 2px rgba(white, 0.6))
+    &:hover
+      filter: $shadow
 
-    .no-touchevents &:active
+    &:active
       opacity: 0.8
 
-    &_bottom
-      &::before
-        transform: rotate(-0.25turn)
-
-    &_top
-      &::before
-        transform: rotate(0.25turn)
-
-  .nav__page
-    +font-bold
-    font-size: 2.5rem
-    line-height: 3.6rem
-    text-transform: uppercase
-    cursor: default
-    // transition
-    $prop: opacity, filter
-    will-change: $prop
-    transition:
-      property: $prop
-      duration: $animation-speed
-      timing-function: ease-in-out
-
-  a.nav__page
-    cursor: pointer
-
-  .nav__page_large
-    font-size: 3.2rem
-
-  .no-touchevents & a.nav__page:hover
-    filter: drop-shadow(1px 1px 2px rgba(white, 0.6))
-
-  .no-touchevents & a.nav__page:active
-    opacity: 0.8
-
-  .nav__info
-    font-weight: normal
+  &__back
+    position: absolute
+    left: 0
+    top: 50%
     display: inline-block
     width: 3.8rem
     height: 3.8rem
-    //background: url(../../img/info@2x.png) no-repeat
+    margin-top: -1.9rem
+    padding: 0.4rem 0 0
     background-size: 100%
-    font-size: 2.7rem
+    font-size: 2.6rem
+    line-height: 2.6rem
+    text-align: center
+    border: 0.1rem solid currentColor
+    border-radius: 3.8rem
+    cursor: pointer
+    user-select: none
+    -webkit-tap-highlight-color: transparent
+    transition: opacity $animation-speed, filter $animation-speed
+
+    &:hover
+      filter: $shadow
+
+    &:active
+      opacity: 0.8
+
+  &__title
+    margin: 0
+    +font-bold
+    font-size: 3.2rem
     line-height: 3.6rem
+    text-transform: uppercase
+
+    &_large
+      font-size: 4rem
+      line-height: 4.6rem
+
+  &__info
+    position: absolute
+    right: 0
+    top: 50%
+    display: inline-block
+    width: 3.8rem
+    height: 3.8rem
+    margin-top: -1.9rem
+    padding: 0.7rem 0 0
+    background-size: 100%
+    font-size: 2.6rem
+    line-height: 2.6rem
     text-align: center
     border: 0.1rem solid currentColor
     border-radius: 3.8rem
     user-select: none
     -webkit-tap-highlight-color: transparent
-    // transition
-    $prop: opacity, filter
-    will-change: $prop
-    transition:
-      property: $prop
-      duration: $animation-speed
-      timing-function: ease-in-out
+    transition: opacity $animation-speed, filter $animation-speed
 
-    .no-touchevents &:hover
-      filter: drop-shadow(1px 1px 2px rgba(white, 0.6))
+    &:hover
+      filter: $shadow
 
-    .no-touchevents &:active
+    &:active
       opacity: 0.8
 
 /* nav end
 
-/* main section
-.main-section
+/* home
+.home
+  width: 100%
+
+  +media('>981px')
+    display: none
+
   &__content
     position: relative
 
-  &__entry
+  &__logo
+    display: block
+    margin: 0 auto
     text-align: center
+    width: 17.5rem
 
-/* main section end
+/* home end
 
-/* entry
-.entry
-  $entry: &
+/* home desk
+.home-desk
+  display: none
+  padding: 2.5rem 5.8rem 6rem
+  margin: 0 auto
+  max-width: 102.4rem
 
-  display: inline-block
-  vertical-align: top
-  text-decoration: none
-  color: inherit
-  background: $bg-color no-repeat center
+  +media('>981px')
+    display: block
 
-  &__figure
-    width: 17.4rem
-    margin: 0 auto 1.6rem
-    background: url(../../img/qr.svg) no-repeat center
-    background-size: contain
-    transition: opacity $animation-speed, filter $animation-speed
-
-    @at-root
-      a#{$entry}:hover &
-        filter: $shadow
-
-      a#{$entry}:active &
-        opacity: 0.8
-
-    &::before
-      content: ""
-      display: block
-      @include ratio(1, 1)
+  &__caption
+    margin-bottom: 8rem
 
   &__title
-    width: 12.8rem
-    margin: 0 auto 1.4rem
-    font-size: 0
-    line-height: 0
-    background: url(../../img/logo.svg) no-repeat center
-    background-size: contain
-    transition: opacity $animation-speed, filter $animation-speed
+    display: inline-flex
+    align-items: center
+    justify-content: space-between
 
-    @at-root
-      a#{$entry}:hover &
-        filter: $shadow
+    &-slogan
+      flex-shrink: 0
+      @include font-bold
+      font-size: 2rem
+      line-height: 2.4rem
+      letter-spacing: -0.01em
+      text-transform: uppercase
+      white-space: nowrap
+      margin: 0 4.2rem 0 0
 
-      a#{$entry}:active &
-        opacity: 0.8
-
-    &::before
-      content: ""
+    &-divider
       display: block
-      @include ratio(128, 36)
+      flex-shrink: 0
+      width: 0.2rem
+      height: 13.1rem
+      background-color: white
+      margin: 0 4.2rem 0 0
 
-  &__year
-    width: 8.2rem
-    margin: 0 auto
-    font-size: 0
-    line-height: 0
-    background: url(../../img/2020.svg) no-repeat center
-    background-size: contain
-    transition: opacity $animation-speed, filter $animation-speed
+    &-info
+      flex-shrink: 0
+      font-size: 1.2rem
+      line-height: 1.7rem
+      letter-spacing: 0.01em
+      text-transform: uppercase
 
-    @at-root
-      a#{$entry}:hover &
-        filter: $shadow
+      a
+        text-decoration: underline
 
-      a#{$entry}:active &
-        opacity: 0.8
+        &:hover
+          text-decoration: none
 
-    &::before
-      content: ""
-      display: block
-      @include ratio(82.2, 27.2)
+  &__logo
+    display: block
+    margin: 0 auto 7.6rem
+    text-align: center
+    width: 18.6rem
 
-/*entry end
+    &:last-child
+      margin-bottom: 0
 
-/*sign
+  &__footer
+    text-align: center
+
+  &__btn
+    $btn: &
+
+    display: inline-block
+    vertical-align: top
+    position: relative
+    margin: 0
+    padding: 1.8rem 4.8rem
+    max-width: 44rem
+    cursor: default
+
+    @include font-bold
+    font-size: 1.4rem
+    line-height: 2.0rem
+    letter-spacing: 0.05em
+    text-transform: uppercase
+    text-decoration: none
+    text-align: center
+    color: #fff
+    border: none
+    border-radius: 0.3rem
+    background-color: $base-color
+    box-shadow: 0 0 7px rgba(201, 79, 8, 0.162789)
+
+    a#{$btn}
+      cursor: pointer
+      transition: color $animation-speed, background-color $animation-speed
+      user-select: none
+      -webkit-tap-highlight-color: transparent
+
+      &:hover
+        background-color: #f38c35
+
+      &:active
+        background-color: #f4994c
+
+/* home desk end
+
+/* sign
 .sign
   margin-bottom: $bottom-space
 
   &:last-child
     margin-bottom: 0
 
-.sign__pre
+  &__pre
+    display: block
+    margin-bottom: 0.7rem
+
+    &:last-child
+      margin-bottom: 0
+
+  &__name
+    margin-bottom: 0.5em
+    display: block
+    font-size: 1.3em
+    letter-spacing: 0.1em
+    text-transform: uppercase
+    font-weight: 500
+
+    &:last-child
+      margin-bottom: 0
+
+/* sign end
+
+/* post
+.post
+  $post: &
+
   display: block
-  margin-bottom: 0.7rem
-
-  &:last-child
-    margin-bottom: 0
-
-.sign__name
-  margin-bottom: 0.5em
-  display: block
-  font-size: 1.3em
-  letter-spacing: 0.1em
-  text-transform: uppercase
-  font-weight: 500
-
-  &:last-child
-    margin-bottom: 0
-
-/*sign end
-
-/*section
-.section
   position: relative
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-  flex-grow: 1
-  //flex-shrink: 1
-  //height: 1px
-  //flex-basis: 160px
-  min-height: 230px
-  padding: 2rem #{$layout-page-space}
-  background-color: $bg-color
-  background-repeat: no-repeat
-  background-position: center
-  background-size: cover
-
-a.section
   text-decoration: none
-  color: currentColor
+  color: $base-color
+  background: white no-repeat center
+  background-size: cover
+  overflow: hidden
+  border-radius: 0.3rem
+  transition: opacity $animation-speed
 
-.section__bg
-  position: absolute
-  width: 100%
-  height: 100%
-  left: 0
-  top: 0
-  background-position: center
-  background-repeat: repeat-x
-  background-size: 360px
+  @at-root
+    a#{$post}
+      &:hover
+        opacity: 0.9
 
-.section_alt
-  background-color: $bg-color-alt
+      &:active
+        opacity: 0.8
 
-  &::before
-    content: ''
-    position: absolute
-    width: 100%
-    height: 100%
-    left: 0
-    top: 0
-    background-color: rgba(black, 0.09)
-    // transition
-    $prop: background-color
-    will-change: $prop
-    transition:
-      property: $prop
-      duration: $animation-speed
-      timing-function: ease-in-out
+    &[href*="javascript:"]
+      &:hover
+        opacity: 1
 
-a.section_alt
-  .no-touchevents &:hover
-    &::before
-      background-color: rgba(white, 0.15)
+        &:active
+          opacity: 1
 
-.section_light
-  background-color: white
+  &_frame
+    box-shadow: 0 0 0.5rem rgba(178, 178, 178, 0.6)
 
-  &::before
-    content: ''
-    position: absolute
-    width: 100%
-    height: 100%
-    left: 0
-    top: 0
-    background-color: rgba($bg-color, 0.86)
-    // transition
-    $prop: background-color
-    will-change: $prop
-    transition:
-      property: $prop
-      duration: $animation-speed
-      timing-function: ease-in-out
+  &_passed
+    $post: &
 
-a.section_light
-  .no-touchevents &:hover
-    &::before
-      background-color: rgba($bg-color, 0.65)
+    opacity: 0.5
 
-.section__date
-  position: relative
-  margin-bottom: 0.2em
-  +font-normal
-  font-size: 1.8rem
-  line-height: round-float(2.4 / 1.8, 1)
-  text-transform: uppercase
-  text-shadow: $text-shadow
+    @at-root
+      a#{$post}
+        &:hover
+          opacity: 0.3
 
-  &:last-child
-    margin-bottom: 0
+        &:active
+          opacity: 0.2
 
-.section__title
-  position: relative
-  width: 100%
-  // Fixed for ie
-  margin-bottom: 0.2em
-  +font-bold
-  font-size: 2.8rem
-  line-height: round-float(3.3 / 2.8, 1)
-  text-transform: uppercase
-  text-align: center
-  text-shadow: $text-shadow
+      &[href*="javascript:"]
+        cursor: default
 
-  &:last-child
-    margin-bottom: 0
+        &:hover
+          opacity: 0.5
 
-  +media('<mob-sm')
-    font-size: 2.0rem
+          &:active
+            opacity: 0.5
 
-.section__title_alt
-  margin-bottom: 0.5em
-  font-size: 2.9rem
-  letter-spacing: 0.07em
+  &__figure
+    &-img
+      display: block
+      width: 100%
 
-.section__note
-  position: relative
-  //position: absolute
-  //left: 0
-  //top: 0
-  align-self: start
-  +font-normal
-  margin-bottom: 1.5rem
-  font-size: 1.2rem
-  line-height: round-float(1.44 / 1.2, 1)
-  text-transform: uppercase
-  letter-spacing: normal
-  width: 165px
-  max-width: 100%
+      &_round
+        $width: 25.6rem
 
-.section__meta
-  position: relative
-  text-align: center
+        width: $width
+        margin-left: auto
+        margin-right: auto
+        border-radius: $width
+        background: no-repeat center
+        background-size: cover
 
-// section footer
-.section_footer
-  flex-grow: 0
-  justify-content: flex-start
-  padding-top: 1.5rem
-  min-height: 210px
+        &::before
+          content: ""
+          display: block
+          @include ratio(1, 1)
 
-// section title
-.section_title
-  padding-bottom: 3.9rem
+  &__content
+    padding: 1.8rem 1rem
 
-// active
-a.section
-  .section__date, .section__title, .section__meta, .section__note
-    // transition
-    $prop: opacity, text-shadow
-    will-change: $prop
-    transition:
-      property: $prop
-      duration: $animation-speed
-      timing-function: ease-in-out
+  &__date
+    font-size: 2rem
+    line-height: 2.3rem
+    text-transform: uppercase
+    text-align: center
+    margin: 0 0 0.5rem
 
-  .no-touchevents a:hover
-    .section__title, .section__date
-      text-shadow: $text-shadow-hover
+  &__title
+    @include font-bold
+    font-size: 2.6rem
+    line-height: 3rem
+    letter-spacing: -0.01em
+    text-transform: uppercase
+    text-align: center
+    color: inherit
+    margin: 0 0 0.5rem
 
-  .no-touchevents &:active
-    .section__date, .section__title, .section__meta, .section__note
-      opacity: 0.8
+    &_small
+      font-size: 2rem
+      line-height: 2.3rem
 
-/*section end
+    &:last-child
+      margin-bottom: 0
 
-/*section content
-.section-content
-  position: relative
-  flex-grow: 1
-  font-size: 1.6rem
-  line-height: 1.9rem
-  color: $text-color-alt
-  padding: 2rem #{$layout-page-space} 3.6rem
+/* post end
+
+/* about
+.about
+  padding-top: 4rem
+  padding-bottom: 4rem
+
+/* about end
+
+/* event
+.event
+  background-color: #fff
+  color: $base-color
+  padding-top: 4rem
+  padding-bottom: 4rem
+
+/* event end
+
+/* soon
+.soon
+  padding-top: 4rem
+  padding-bottom: 0
+
+/* soon end
+
+/* posts
+.posts
   background-color: #fff
 
-  h1, h2, h3, h4, h5, h6,
-  .h1, .h2, .h3, .h4, .h5, .h6
-    color: $base-color
+  &__item
+    padding: 2rem 0
+    margin-bottom: 0
 
-  img
-    margin-bottom: $bottom-space
+/* posts end
 
-    &:last-child
-      margin-bottom: 0
+/* all */
+.all
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 22rem
 
-  p, ul, ol, table
-    margin-bottom: 1.9rem
+  &__bg
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    background: url(../../img/bg-diamonds.svg) no-repeat center
+    background-size: contain
+    width: 33rem
+    max-width: 100%
 
-    &:last-child
-      margin-bottom: 0
+    &::before
+      content: ""
+      display: block
+      @include ratio(329, 276)
 
-  .sign
-    margin-bottom: 3.2rem
-
-    &:last-child
-      margin-bottom: 0
-
-  .sign__pre
-    margin-bottom: 0.4rem
-
-    &:last-child
-      margin-bottom: 0
-
-  .sign__name
-    font-size: 1.1em
-    letter-spacing: 0.1em
-
-/*section content end
-
-/*footer buttons
-.buttons-wrap
-  text-align: center
-  min-height: 10rem
-  padding-top: 20px
-  padding-bottom: 20px
-
-/*footer buttons end
+/* all end */

@@ -128,12 +128,14 @@ gulp.task('mergeCssLibsProduction', function () {
   }
 });
 
-const jsLibs = ['node_modules/lozad/dist/lozad.min.js'];
+const jsLibs = [
+  'node_modules/intersection-observer/intersection-observer.js',
+  'node_modules/vanilla-lazyload/dist/lazyload.min.js'
+];
 gulp.task('mergeScriptsLibs', ['copyJqueryToJs'], function () {
   if(jsLibs.length) {
     return gulp.src(jsLibs)
         .pipe(concat('libs.min.js'))
-        .pipe(gulp.dest('src/js'))
         .pipe(uglify())
         .pipe(gulp.dest(path.dist + '/js'));
   }
@@ -184,7 +186,6 @@ gulp.task('copyFonts', function () {
 
 gulp.task('copyImages', function () {
   return gulp.src('src/img/**/*')
-      .pipe(plumber())
       .pipe(cache(imagemin({
         interlaced: true,
         progressive: true,

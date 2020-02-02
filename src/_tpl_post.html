@@ -1,0 +1,13 @@
+<a href="@@href" class="post@@if(context.frame){ post_frame}@@if(context.passed){ post_passed}">
+  @@if(context.image || context.imageRound){
+  <div class="post__figure">
+    @@if(context.image){<img class="post__figure-img lazy" data-src="@@imageSrc" src="@@imageSrcLowQuality" alt="@@title" />}
+    @@if(context.imageRound){<div class="post__figure-img post__figure-img_round lazy" data-bg="url(@@imageSrc)" style="background-image:url(@@imageSrcLowQuality);"></div>}
+  </div>
+  }
+  <div class="post__content"@@if(context.backgroundColor){ style="background-color: @@backgroundColor; color: @@textColor"}>
+    @@if(context.date){<div class="post__date">@@date</div>}
+    @@if(context.title){<h2 class="post__title@@if(context.titleSmall){ post__title_small}">@@title</h2>}
+    @@if(context.text){<div class="post__text">@@text</div>}
+  </div>
+</a>
