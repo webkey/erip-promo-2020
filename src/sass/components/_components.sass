@@ -17,12 +17,18 @@
   &_header-space
     padding-top: $header-height
 
+  +media('>=982px')
+    display: none !important
+
 /* main end
 
 /* header
 .header
   position: relative
   height: $header-height
+
+  +media('>=982px')
+    display: none !important
 
   &_fixed
     position: fixed
@@ -49,6 +55,9 @@
   margin-top: auto
   flex-shrink: 0
 
+  +media('>=982px')
+    display: none !important
+
   &_float
     position: fixed
     left: 0
@@ -64,10 +73,12 @@
     margin: 0 auto
 
   &__title
-    margin-bottom: 2.5rem
+    margin: 0 auto 2.5rem
+    padding: 0 0.2rem 0 0
     display: flex
     align-items: center
     justify-content: space-between
+    max-width: 30.8rem
 
     &-logo
       $width: 7rem
@@ -84,20 +95,30 @@
       background-color: white
 
     &-slogan
+      $width: 17.8rem
+
       flex-shrink: 0
+      flex-basis: $width
+      max-width: $width
       @include font-bold
-      font-size: 2rem
-      line-height: 2.4rem
-      letter-spacing: -0.01em
+      font-size: 0
+      line-height: 0
       text-transform: uppercase
       white-space: nowrap
+      background: url(../../img/slogan.svg) no-repeat center
+      background-size: contain
+
+      &::before
+        content: ""
+        display: block
+        @include ratio(178, 20)
 
   &__content
     font-size: 1.4rem
     line-height: 1.8rem
     text-transform: uppercase
     letter-spacing: 0.01em
-    margin-bottom: 2.5rem
+    margin-bottom: 3.1rem
 
     p
       margin-bottom: 1.8rem
@@ -106,7 +127,9 @@
         margin-bottom: 0
 
   &__bottom
+    max-width: 28rem
     text-align: center
+    margin: 0 auto
 
 /* footer end
 
@@ -162,6 +185,7 @@
     width: 3.4rem
     height: 3.8rem
     margin-top: -1.9rem
+    margin-left: -0.5rem
     font-size: 2.7rem
     line-height: 3.7rem
     text-align: center
@@ -185,10 +209,10 @@
     width: 3.8rem
     height: 3.8rem
     margin-top: -1.9rem
-    padding: 0.4rem 0 0
+    margin-left: -0.5rem
     background-size: 100%
     font-size: 2.6rem
-    line-height: 2.6rem
+    line-height: 3.6rem
     text-align: center
     border: 0.1rem solid currentColor
     border-radius: 3.8rem
@@ -204,11 +228,12 @@
       opacity: 0.8
 
   &__title
-    margin: 0
     +font-bold
     font-size: 3.2rem
     line-height: 3.6rem
+    letter-spacing: -0.04em
     text-transform: uppercase
+    margin: 0
 
     &_large
       font-size: 4rem
@@ -222,10 +247,10 @@
     width: 3.8rem
     height: 3.8rem
     margin-top: -1.9rem
-    padding: 0.7rem 0 0
+    margin-right: -0.8rem
     background-size: 100%
     font-size: 2.6rem
-    line-height: 2.6rem
+    line-height: 3.6rem
     text-align: center
     border: 0.1rem solid currentColor
     border-radius: 3.8rem
@@ -245,9 +270,6 @@
 .home
   width: 100%
 
-  +media('>981px')
-    display: none
-
   &__content
     position: relative
 
@@ -255,19 +277,27 @@
     display: block
     margin: 0 auto
     text-align: center
-    width: 17.5rem
+    width: 17.6rem
 
 /* home end
 
-/* home desk
-.home-desk
+/* desk
+.desk
   display: none
-  padding: 2.5rem 5.8rem 6rem
-  margin: 0 auto
-  max-width: 102.4rem
+  position: relative
+  z-index: 99999
+  align-items: center
+  flex-grow: 1
+  background-color: $bg-color
 
   +media('>981px')
-    display: block
+    display: flex
+
+  &__layout
+    padding: 2.5rem 6.3rem 6rem
+    margin: 0 auto
+    width: 102.4rem
+    max-width: 100%
 
   &__caption
     margin-bottom: 8rem
@@ -280,12 +310,11 @@
     &-slogan
       flex-shrink: 0
       @include font-bold
-      font-size: 2rem
+      font-size: 2.2rem
       line-height: 2.4rem
-      letter-spacing: -0.01em
       text-transform: uppercase
       white-space: nowrap
-      margin: 0 4.2rem 0 0
+      margin: 0 6.2rem 0 0
 
     &-divider
       display: block
@@ -297,9 +326,9 @@
 
     &-info
       flex-shrink: 0
-      font-size: 1.2rem
+      font-size: 1.3rem
+      padding: 0.2rem 0 0 0
       line-height: 1.7rem
-      letter-spacing: 0.01em
       text-transform: uppercase
 
       a
@@ -312,7 +341,7 @@
     display: block
     margin: 0 auto 7.6rem
     text-align: center
-    width: 18.6rem
+    width: 18.7rem
 
     &:last-child
       margin-bottom: 0
@@ -327,14 +356,14 @@
     vertical-align: top
     position: relative
     margin: 0
-    padding: 1.8rem 4.8rem
+    padding: 2.2rem 3rem
     max-width: 44rem
     cursor: default
 
     @include font-bold
     font-size: 1.4rem
     line-height: 2.0rem
-    letter-spacing: 0.05em
+    letter-spacing: 0.03em
     text-transform: uppercase
     text-decoration: none
     text-align: center
@@ -356,7 +385,7 @@
       &:active
         background-color: #f4994c
 
-/* home desk end
+/* desk end
 
 /* sign
 .sign
@@ -391,6 +420,8 @@
 
   display: block
   position: relative
+  margin-left: -1rem
+  margin-right: -1rem
   text-decoration: none
   color: $base-color
   background: white no-repeat center
@@ -398,6 +429,7 @@
   overflow: hidden
   border-radius: 0.3rem
   transition: opacity $animation-speed
+  -webkit-tap-highlight-color: transparent
 
   @at-root
     a#{$post}
@@ -460,31 +492,37 @@
           @include ratio(1, 1)
 
   &__content
-    padding: 1.8rem 1rem
+    padding: 1.4rem 1rem
 
   &__date
     font-size: 2rem
     line-height: 2.3rem
     text-transform: uppercase
     text-align: center
-    margin: 0 0 0.5rem
+    margin: 0 0 0.2rem
 
   &__title
     @include font-bold
     font-size: 2.6rem
     line-height: 3rem
-    letter-spacing: -0.01em
+    letter-spacing: -0.02em
     text-transform: uppercase
     text-align: center
     color: inherit
-    margin: 0 0 0.5rem
+    margin: 0 0 2rem
 
     &_small
+      padding: 0.4rem 0 0
       font-size: 2rem
-      line-height: 2.3rem
+      line-height: 2rem
+      letter-spacing: -0.025em
 
     &:last-child
       margin-bottom: 0
+
+  &__text
+    font-size: 2.2rem
+    line-height: 1
 
 /* post end
 
@@ -499,10 +537,16 @@
 .event
   background-color: #fff
   color: $base-color
-  padding-top: 4rem
-  padding-bottom: 4rem
+  padding-top: 3rem
+  padding-bottom: 4.6rem
 
 /* event end
+
+/* event entry
+.event-entry
+  margin: -3rem -#{$layout-page-space} 3.2rem
+
+/* event entry end
 
 /* soon
 .soon
@@ -515,9 +559,15 @@
 .posts
   background-color: #fff
 
+  &__list
+    padding-bottom: 1rem
+
   &__item
     padding: 2rem 0
     margin-bottom: 0
+
+    &:first-child
+      padding-top: 1rem
 
 /* posts end
 
@@ -545,3 +595,114 @@
       @include ratio(329, 276)
 
 /* all end */
+
+/* start-preloader
+.start-preloader
+  $size: 17.6rem
+  $zoom-duration: 3s
+  $zoom-delay: 0.5s
+  $show-logo-duration: 0.5s
+
+  overflow: hidden
+  position: fixed
+  z-index: 9999
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  background-color: $base-color
+  display: flex
+  align-items: center
+  justify-content: center
+  opacity: 1
+  pointer-events: auto
+  animation: hide-preloader 0.5s ease-out #{$zoom-duration + $zoom-delay + $show-logo-duration + 1s} forwards
+
+  +media('>=982px')
+    display: none !important
+
+  @keyframes hide-preloader
+    0%
+      opacity: 1
+      pointer-events: auto
+    100%
+      opacity: 0
+      pointer-events: none
+
+  &__logo
+    display: block
+    margin: 0 auto
+    text-align: center
+    width: $size
+    max-width: 100%
+    text-decoration: none
+    background: url(../../img/logo.svg) no-repeat center
+    background-size: contain
+    opacity: 0
+    transition: opacity $animation-speed
+    animation: show-logo $show-logo-duration ease-out #{$zoom-duration + $zoom-delay} forwards
+
+    &::before
+      content: ""
+      display: block
+      @include ratio(175, 269)
+
+  @keyframes show-logo
+    0%
+      opacity: 0
+    100%
+      opacity: 1
+
+  &__diamond
+    position: absolute
+    left: 50%
+    top: 50%
+    width: $size
+    height: $size
+    margin: -#{round-float($size / 2, 1)}
+    transform: translate(0, -4.7rem)
+    animation: hide-diamond $show-logo-duration ease-out #{$zoom-duration + 0.35} forwards
+
+    @keyframes hide-diamond
+      0%
+        opacity: 1
+      100%
+        opacity: 0
+
+    &-bg
+      $height: 1798rem
+      $width: round-float($height * (640 / 1020), 1)
+
+      position: absolute
+      left: 50%
+      top: 50%
+      width: $width
+      height: $height
+      margin: -#{round-float($height / 2, 1)} -#{round-float($width / 2, 1)}
+      background-size: auto
+      opacity: 0
+      transform-origin: 48% 51%
+      animation: zoom $zoom-duration cubic-bezier(0.47, 0, 0.75, 0.72) $zoom-delay forwards
+      will-change: transform, opacity
+
+      svg
+        position: relative
+        display: block
+        height: 100%
+        width: 100%
+        transform: translate(43.1rem, -68.6rem)
+
+  @keyframes zoom
+    0%
+      transform: scale(0.1) rotate(15deg) translateZ(0)
+      opacity: 0
+    10%
+      opacity: 1
+    80%
+      transform: scale(1)  rotate(0deg) translateZ(0)
+      opacity: 1
+    100%
+      transform: scale(1) translateZ(0)
+      opacity: 1
+
+/* start-preloader end

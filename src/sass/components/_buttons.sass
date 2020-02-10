@@ -7,7 +7,6 @@
   $btn-height: 6.6rem !default
   $btn-font-size: 2.6rem
   $btn-line-height: 3.0rem
-  $btn-letter-spacing: -0.01em
   $btn-space-inner-vertical: round-float(($btn-height - $btn-line-height) / 2, 1)
   $btn-space-inner-horizontal: $btn-space-inner-vertical * 2
   $btn-border-radius: 0.3rem
@@ -22,7 +21,7 @@
   @include font-bold
   font-size: $btn-font-size
   line-height: $btn-line-height
-  letter-spacing: $btn-letter-spacing
+  letter-spacing: -0.025em
   text-transform: uppercase
   text-decoration: none
   text-align: center
@@ -39,8 +38,12 @@
     input#{$btn}
       border-radius: $btn-border-radius
 
-    &:hover
-      background-color: #f38c35
+  &:hover
+    background-color: #f38c35
 
-    &:active
-      background-color: #f4994c
+  &:active
+    background-color: #f4994c
+
+  &_full-width
+    max-width: none
+    width: 100%

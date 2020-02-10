@@ -32,7 +32,7 @@ var path = {
 };
 
 gulp.task('htmlCompilation', function () {
-  return gulp.src(['!src/_tpl_*.html', 'src/*.html', 'src/20*/**/*'])
+  return gulp.src(['!src/_tpl_*.html', 'src/*.html', 'src/20*/**/*.html'])
       .pipe(plumber())
       .pipe(fileinclude({
         basepath: '@root',
@@ -43,7 +43,7 @@ gulp.task('htmlCompilation', function () {
       .pipe(gulp.dest('./' + path.dist));
 });
 
-gulp.task('htmlCompilationProduction', function () {
+gulp.task('baseHtmlCompilationProduction', function () {
   return gulp.src(['!src/_tpl_*.html', 'src/*.html', 'src/20*/**/*'])
       .pipe(plumber())
       .pipe(fileinclude({
@@ -62,6 +62,12 @@ gulp.task('htmlCompilationProduction', function () {
         "max_preserve_newlines": 0
       }))
       .pipe(gulp.dest('./' + path.dist));
+});
+
+gulp.task('htmlCompilationProduction', ['baseHtmlCompilationProduction'], function () {
+  return gulp.src([path.dist + '/*.html', path.dist + '/20*/**/*.html'])
+      .pipe(revts())
+      .pipe(gulp.dest(path.dist));
 });
 
 gulp.task('sassCompilation', function () {

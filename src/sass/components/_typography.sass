@@ -50,8 +50,27 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .nobr
   white-space: nowrap
 
+.push-center
+  margin-left: auto
+  margin-right: auto
+
 .hide-text
   +hide-text
+
+.erip-logotype
+  display: inline-block
+  vertical-align: top
+  width: 6.8rem
+  max-width: 100%
+  font-size: 0
+  line-height: 0
+  background: url(../../img/erip-logotype.svg) no-repeat center
+  background-size: contain
+
+  &::before
+    content: ""
+    display: block
+    @include ratio(68, 22)
 
 table
   border-collapse: collapse
@@ -84,7 +103,7 @@ table
     @include font-bold
     color: inherit
     margin: 0 0 $bottom-space
-    letter-spacing: -0.01em
+    letter-spacing: normal
 
     &:last-child
       margin-bottom: 0
@@ -114,6 +133,12 @@ table
     margin-top: round-float(1.5 * $bottom-space, 1)
 
     &:first-child
+      margin-top: 0
+
+  .event-entry
+    & + h1, & + .h1,
+    & + h2, & + .h2,
+    & + h3, & + .h3
       margin-top: 0
 
   p

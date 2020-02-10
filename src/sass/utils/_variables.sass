@@ -6,19 +6,15 @@ $breakpoints: ('desk-qhd': 2560px, 'desk-hd': 1920px, 'desk-lg': 1600px, 'desk-m
 // Fonts style
 // ==========================================================================
 $font-norm: "Nimbus Sans Novus", Helvetica, Arial, sans-serif
+//$font-norm: Arial, sans-serif
 $font-bold: "Nimbus Sans Novus Bold", Helvetica, Arial, sans-serif
-$font-medium: "Nimbus Sans Novus Medium", Helvetica, Arial, sans-serif
+//$font-bold: Arial, sans-serif
 
 =font-normal()
   font-family: $font-norm
 
 =font-bold()
   font-family: $font-bold
-  font-weight: normal
-
-=font-medium()
-  font-family: $font-medium
-  font-weight: normal
 
 =font-italic()
   font-style: italic
@@ -31,7 +27,7 @@ $font-medium: "Nimbus Sans Novus Medium", Helvetica, Arial, sans-serif
 // ==========================================================================
 
 $font-size: 2.2rem !default
-$line-height: round-float(2.5rem / $font-size, 1) !default
+$line-height: round-float(2.2rem / $font-size, 1) !default
 
 // Heading h1
 $font-size-h1: 4.8rem !default
@@ -42,8 +38,8 @@ $line-height-h1: round-float(6rem / $font-size-h1, 1) !default
   line-height: $line-height-h1
 
 // Heading h2
-$font-size-h2: 2.6rem !default
-$line-height-h2: round-float(3rem / $font-size-h2, 1) !default
+$font-size-h2: 2.5rem !default
+$line-height-h2: round-float(2.9rem / $font-size-h2, 1) !default
 // ----------------------------------------------------
 =font-h2()
   font-size: $font-size-h2
@@ -94,7 +90,7 @@ $shadow: drop-shadow(1px 1px 2px rgba(white, 0.6)) !default
 
 $layout-page-min-width: 32rem !default
 $layout-page-max-width: 256rem !default
-$layout-page-space: 1rem !default
+$layout-page-space: 2rem !default
 
 $layout-content-max-width: 34rem !default
 

@@ -3,10 +3,10 @@
   <div class="header__holder">
     <div class="layout-content">
       <div class="nav">
-        @@if(context.btnHome){<a href="index.html" class="nav__arr" title="На главную">↑</a>}
-        @@if(context.btnBack){<a href="javascript:void(0)" onclick="window.history.back()" class="nav__back" title="Назад">←</a>}
-        <h1 class="nav__title@@if(context.titleLarge){ nav__title_large}">@@title</h1>
-        @@if(context.btnAbout){<a href="about.html" class="nav__info" title="O проекте">?</a>}
+        @@if(context.btnHome){<a href="index.html" class="nav__arr" title="На главную"><span>↑</span></a>}
+        @@if(context.btnBack){<a href="javascript:void(0)" onclick="window.history.back()" class="nav__back" title="Назад"><span>←</span></a>}
+        <h1 class="nav__title@@if(context.titleLarge){ nav__title_large}"><span>@@title</span></h1>
+        @@if(context.btnAbout){<a href="about.html" class="nav__info" title="O проекте"><span>?</span></a>}
       </div>
     </div>
   </div>

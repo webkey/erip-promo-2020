@@ -8,6 +8,6 @@
   <div class="post__content"@@if(context.backgroundColor){ style="background-color: @@backgroundColor; color: @@textColor"}>
     @@if(context.date){<div class="post__date">@@date</div>}
     @@if(context.title){<h2 class="post__title@@if(context.titleSmall){ post__title_small}">@@title</h2>}
-    @@if(context.text){<div class="post__text">@@text</div>}
+    @@if(context.text){<div class="post__text edit-content">@@text</div>}
   </div>
 </a>
