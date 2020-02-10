@@ -186,14 +186,19 @@
     height: 3.8rem
     margin-top: -1.9rem
     margin-left: -0.5rem
-    font-size: 2.7rem
-    line-height: 3.7rem
+    font-size: 0
+    line-height: 0
     text-align: center
     border-top: 0.1rem solid currentColor
     color: white
     user-select: none
     -webkit-tap-highlight-color: transparent
     transition: opacity $animation-speed, filter $animation-speed
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxOSIgdmlld0JveD0iMCAwIDggMTkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTMuNDMzIDE5VjMuMjU5QzIuODU3IDMuNzQ1IDEuOTkzIDQuMjY3IDAuODQxIDQuODI1VjMuODhDMi4xNzMgMi43NDYgMy4xNDUgMS41NTggMy43NTcgMC4zMTU5OTlINC4yNDNDNC44NzMgMS41NTggNS44NDUgMi43NDYgNy4xNTkgMy44OFY0LjgyNUM2LjAwNyA0LjI2NyA1LjE0MyAzLjc0NSA0LjU2NyAzLjI1OVYxOUgzLjQzM1oiIGZpbGw9IndoaXRlIi8+PC9zdmc+) no-repeat center
+    background-size: 0.8rem
+
+    //span
+      border: 1px solid red
 
     &:hover
       filter: $shadow
@@ -211,8 +216,8 @@
     margin-top: -1.9rem
     margin-left: -0.5rem
     background-size: 100%
-    font-size: 2.6rem
-    line-height: 3.6rem
+    font-size: 0
+    line-height: 0
     text-align: center
     border: 0.1rem solid currentColor
     border-radius: 3.8rem
@@ -220,6 +225,11 @@
     user-select: none
     -webkit-tap-highlight-color: transparent
     transition: opacity $animation-speed, filter $animation-speed
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDE5IDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTMuNzIyIDYuOTI1QzIuNTg4IDUuNTkzIDEuNCA0LjYyMSAwLjE1OCA0LjAwOVYzLjUyM0MxLjQgMi44OTMgMi41ODggMS45MjEgMy43MjIgMC42MDY5OTlINC42NjdDNC4xMjcgMS43NDEgMy42MDUgMi42MDUgMy4xMDEgMy4xOTlIMTguODQyVjQuMzMzSDMuMTAxQzMuNjA1IDQuOTI3IDQuMTI3IDUuNzkxIDQuNjY3IDYuOTI1SDMuNzIyWiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=) no-repeat center
+    background-size: 2.2rem
+
+    //span
+      border: 1px solid red
 
     &:hover
       filter: $shadow
@@ -230,10 +240,13 @@
   &__title
     +font-bold
     font-size: 3.2rem
-    line-height: 3.6rem
+    line-height: 2.4rem
     letter-spacing: -0.04em
     text-transform: uppercase
     margin: 0
+
+    //span
+      border: 1px solid red
 
     &_large
       font-size: 4rem
@@ -249,14 +262,19 @@
     margin-top: -1.9rem
     margin-right: -0.8rem
     background-size: 100%
-    font-size: 2.6rem
-    line-height: 3.6rem
+    font-size: 0
+    line-height: 0
     text-align: center
     border: 0.1rem solid currentColor
     border-radius: 3.8rem
     user-select: none
     -webkit-tap-highlight-color: transparent
     transition: opacity $animation-speed, filter $animation-speed
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTkiIHZpZXdCb3g9IjAgMCAxMiAxOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMC42NzM4MjggNi41ODEwNUMwLjcyNjU2MiA1LjA1MTc2IDEuMDE2NiAzLjg3NDAyIDEuNTQzOTUgMy4wNDc4NUMyLjAwOTc3IDIuMjc0NDEgMi42NTU3NiAxLjY3Njc2IDMuNDgxOTMgMS4yNTQ4OEM0LjMxNjg5IDAuODI0MjE5IDUuMjQ0MTQgMC42MDg4ODcgNi4yNjM2NyAwLjYwODg4N0M3LjgxMDU1IDAuNjA4ODg3IDkuMDcxNzggMS4wNDM5NSAxMC4wNDc0IDEuOTE0MDZDMTEuMDIyOSAyLjc3NTM5IDExLjUxMDcgMy45MDAzOSAxMS41MTA3IDUuMjg5MDZDMTEuNTEwNyA2LjQ0MDQzIDExLjE3NjggNy40NTU1NyAxMC41MDg4IDguMzM0NDdDMTAuMjM2MyA4LjY3NzI1IDkuNTU5NTcgOS4zNjI3OSA4LjQ3ODUyIDEwLjM5MTFDNy44MTA1NSAxMS4wMDYzIDcuMzc5ODggMTEuNTYwMSA3LjE4NjUyIDEyLjA1MjJDNy4wMDE5NSAxMi41NDQ0IDYuOTAwODggMTMuMzY2MiA2Ljg4MzMgMTQuNTE3Nkg1LjM4MDM3QzUuMzk3OTUgMTMuMDU4NiA1LjU0Mjk3IDEyLjAzOTEgNS44MTU0MyAxMS40NTlDNi4wOTY2OCAxMC44NzAxIDYuOTE0MDYgOS45Mjk2OSA4LjI2NzU4IDguNjM3N0M5LjMzMTA1IDcuNTc0MjIgOS44NjI3OSA2LjQ5MzE2IDkuODYyNzkgNS4zOTQ1M0M5Ljg2Mjc5IDQuMzgzNzkgOS41MjQ0MSAzLjU3MDggOC44NDc2NiAyLjk1NTU3QzguMTcwOSAyLjMzMTU0IDcuMjkxOTkgMi4wMTk1MyA2LjIxMDk0IDIuMDE5NTNDNC42NjQwNiAyLjAxOTUzIDMuNTM5MDYgMi42MzAzNyAyLjgzNTk0IDMuODUyMDVDMi40NzU1OSA0LjQ2NzI5IDIuMjYwMjUgNS4zNzY5NSAyLjE4OTk0IDYuNTgxMDVIMC42NzM4MjhaTTUuMTU2MjUgMTlWMTYuNDk1MUg3LjA1NDY5VjE5SDUuMTU2MjVaIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==) no-repeat center
+    background-size: 1.4rem
+
+    //span
+      border: 1px solid red
 
     &:hover
       filter: $shadow
