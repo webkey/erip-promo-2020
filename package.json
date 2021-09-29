@@ -35,7 +35,7 @@
     "gulp-strip-comments": "^2.5.2",
     "gulp-strip-css-comments": "^2.0.0",
     "gulp-uglifyjs": "^0.6.2",
-    "i": "^0.3.6",
+    "i": "^0.3.7",
     "imagemin-pngquant": "^5.0.0",
     "include-media": "^1.4.9",
     "intersection-observer": "^0.7.0",
