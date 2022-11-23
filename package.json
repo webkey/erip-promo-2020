@@ -9,7 +9,7 @@
   "author": "Astronim",
   "license": "ISC",
   "dependencies": {
-    "browser-sync": "^2.18.6",
+    "browser-sync": "^2.27.10",
     "del": "^2.2.2",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
